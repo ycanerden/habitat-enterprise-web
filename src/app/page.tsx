@@ -1,117 +1,173 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Cpu, Layers, Target, Boxes } from 'lucide-react';
+import { ArrowRight, Cpu, Target, Shield, Boxes, Activity, BarChart3, Globe } from 'lucide-react';
 import Navbar from '@/components/Navbar';
-import Dashboard from '@/components/Dashboard';
+import { AuroraText } from '@/components/aurora-text';
+import { BorderBeam } from '@/components/border-beam';
 
 export default function Home() {
-  const services = [
-    {
-      icon: <Target className="w-5 h-5" />,
-      title: "Strategic Discovery",
-      desc: "Identifying white spaces and high-TAM opportunities within corporate ecosystems using AI-native intelligence."
-    },
-    {
-      icon: <Cpu className="w-5 h-5" />,
-      title: "Venture Building",
-      desc: "Transforming internal expertise into functional, standalone digital ventures in high-velocity sprints."
-    },
-    {
-      icon: <Layers className="w-5 h-5" />,
-      title: "Governance OS",
-      desc: "Banking-grade infrastructure and regulatory compliance as a service for high-risk corporate environments."
-    }
-  ];
-
   return (
     <main className="min-h-screen bg-white selection:bg-indigo-500 selection:text-white relative overflow-hidden">
-      {/* Background Superiority */}
-      <div className="absolute inset-0 z-0 bg-dot-grid opacity-40 pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[800px] h-[600px] bg-indigo-50/50 rounded-full blur-[120px] -mr-[400px] -mt-[200px] pointer-events-none" />
+      {/* Background Grids */}
+      <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-indigo-50/50 rounded-full blur-[120px] -mr-[400px] -mt-[200px] pointer-events-none" />
       
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative pt-40 pb-24 px-6 z-10">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="relative pt-40 pb-20 px-6 z-10">
+        <div className="max-w-7xl mx-auto flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col items-center text-center"
           >
-            <span className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm text-slate-500 text-[10px] font-bold uppercase tracking-[0.2em] mb-10">
-              <Boxes size={12} className="text-indigo-500" />
-              <span>Venture Builder for Corporate Alpha</span>
-            </span>
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-[10px] font-bold uppercase tracking-[0.2em] mb-12 shadow-sm">
+              <Boxes size={12} />
+              <span>The OS for Corporate Ventures</span>
+            </div>
             
-            <h1 className="text-6xl md:text-[88px] font-black tracking-tighter text-slate-950 mb-8 leading-[0.85] gradient-text">
-              THE OPERATING SYSTEM <br />
-              FOR INTERNAL VENTURES.
+            <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-slate-950 mb-8 leading-[0.85]">
+              <AuroraText>BUILD VENTURES</AuroraText> <br />
+              WITH STARTUP VELOCITY.
             </h1>
             
-            <p className="max-w-3xl mx-auto text-lg md:text-xl text-slate-500 mb-16 font-medium leading-relaxed italic">
-              "We provide the strategic speed of a startup with the 
-              security and scale of an enterprise powerhouse."
+            <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-500 mb-12 font-medium leading-relaxed italic">
+              "We provide the strategic speed of a founder with the 
+              banking-grade security of a global enterprise."
             </p>
+
+            <div className="flex items-center space-x-4">
+              <button className="px-10 py-4 rounded-xl bg-slate-950 text-white font-bold text-sm hover:bg-indigo-600 transition-all shadow-2xl shadow-indigo-100 flex items-center space-x-2 group">
+                <span>Start Briefing</span>
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <Dashboard />
-          </motion.div>
-        </div>
-      </section>
+          {/* Superior Bento Grid - Product Feel */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mt-24 w-full">
+            
+            {/* Main Terminal Card */}
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+              className="md:col-span-8 relative group rounded-3xl border border-slate-200 bg-white/80 backdrop-blur-xl p-8 overflow-hidden min-h-[400px] shadow-sm hover:shadow-2xl hover:shadow-indigo-50 transition-all"
+            >
+              <BorderBeam size={300} duration={12} delay={9} />
+              <div className="flex items-center justify-between mb-8 border-b border-slate-100 pb-4">
+                 <div className="flex space-x-2">
+                    <div className="w-3 h-3 rounded-full bg-slate-100" />
+                    <div className="w-3 h-3 rounded-full bg-slate-100" />
+                    <div className="w-3 h-3 rounded-full bg-slate-100" />
+                 </div>
+                 <div className="text-[10px] font-mono text-slate-400 font-bold uppercase tracking-widest">venture-dashboard.exe</div>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-12">
+                 <div className="space-y-6">
+                    <h3 className="text-2xl font-black tracking-tight text-slate-900 uppercase italic underline decoration-indigo-500/30">Venture OS</h3>
+                    <p className="text-slate-500 font-medium leading-relaxed">
+                       Functional, AI-native prototypes and validated market strategies 
+                       using the Habitat 5-hour framework.
+                    </p>
+                    <div className="flex items-center space-x-4">
+                       <div className="flex items-center space-x-2 px-3 py-1 rounded bg-indigo-50 text-indigo-600 font-mono text-[10px] font-bold">
+                          $2.4B TAM IDENTIFIED
+                       </div>
+                       <div className="flex items-center space-x-2 px-3 py-1 rounded bg-green-50 text-green-600 font-mono text-[10px] font-bold">
+                          BANK-GRADE SECURE
+                       </div>
+                    </div>
+                 </div>
+                 <div className="bg-slate-50/50 rounded-2xl p-6 border border-slate-100 font-mono text-xs space-y-4">
+                    <div className="flex items-start space-x-2 text-indigo-500">
+                       <span className="font-bold">[SYS]</span>
+                       <span className="text-slate-600 animate-pulse">Analyzing internal expertise...</span>
+                    </div>
+                    <div className="flex items-center space-x-2 text-slate-400">
+                       <Activity size={12} />
+                       <span>Market validation score: 94.2%</span>
+                    </div>
+                    <div className="flex items-center space-x-2 text-slate-400">
+                       <Target size={12} />
+                       <span>Problem-Solution fit: High</span>
+                    </div>
+                    <div className="pt-4 border-t border-slate-200/50 text-indigo-600 font-bold">
+                       Ready for Deployment &gt;_
+                    </div>
+                 </div>
+              </div>
+            </motion.div>
 
-      {/* Product Pillars */}
-      <section id="solutions" className="py-32 border-t border-slate-100 bg-slate-50/30 relative">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8">
-            {services.map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="group p-8 rounded-2xl bg-white border border-slate-200 hover:border-indigo-200 transition-all hover:shadow-2xl hover:shadow-indigo-50 hover:-translate-y-1"
-              >
-                <div className="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-inner shadow-white">
-                  {item.icon}
-                </div>
-                <h3 className="text-sm font-black text-slate-900 mb-4 uppercase tracking-[0.1em]">{item.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed font-medium">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
+            {/* Side Card 1 */}
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+              className="md:col-span-4 group relative rounded-3xl border border-slate-200 bg-white p-8 flex flex-col justify-between hover:border-indigo-200 transition-colors shadow-sm"
+            >
+               <div className="w-12 h-12 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600 mb-6 shadow-inner shadow-white">
+                  <Shield size={24} />
+               </div>
+               <div>
+                  <h3 className="text-sm font-black text-slate-900 uppercase tracking-widest mb-2">Security</h3>
+                  <p className="text-xs text-slate-500 font-medium leading-relaxed">
+                     Built for the world's most regulated environments. Compliance as a Service.
+                  </p>
+               </div>
+            </motion.div>
+
+            {/* Bottom Row */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+              className="md:col-span-4 group rounded-3xl border border-slate-200 bg-white p-8 hover:border-indigo-200 transition-colors shadow-sm"
+            >
+               <BarChart3 className="text-indigo-600 mb-6" size={32} />
+               <h3 className="text-sm font-black text-slate-900 uppercase tracking-widest mb-2">Market Intelligence</h3>
+               <p className="text-xs text-slate-500 font-medium">Real-time data visualization for venture validation.</p>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+              className="md:col-span-4 group rounded-3xl border border-slate-200 bg-white p-8 hover:border-indigo-200 transition-colors shadow-sm"
+            >
+               <Globe className="text-indigo-600 mb-6" size={32} />
+               <h3 className="text-sm font-black text-slate-900 uppercase tracking-widest mb-2">Global Scale</h3>
+               <p className="text-xs text-slate-500 font-medium">From pilot to global launch in under 6 months.</p>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+              className="md:col-span-4 group rounded-3xl bg-indigo-600 p-8 text-white flex flex-col justify-between"
+            >
+               <h3 className="text-2xl font-black italic tracking-tighter">Ready to Build?</h3>
+               <button className="flex items-center space-x-2 text-xs font-bold uppercase tracking-widest bg-white text-indigo-600 w-fit px-4 py-2 rounded-lg">
+                  <span>Start Pilot</span>
+                  <ArrowRight size={14} />
+               </button>
+            </motion.div>
+
           </div>
         </div>
       </section>
 
-      {/* Strategic Call to Action */}
-      <section id="methodology" className="py-40 px-6 text-center">
-         <div className="max-w-4xl mx-auto">
-            <h2 className="text-5xl md:text-7xl font-black text-slate-950 mb-12 tracking-tighter leading-none">
-              READY TO <br />
-              <span className="italic text-indigo-500">BUILD</span> THE NEXT?
-            </h2>
-            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-               <button className="px-10 py-5 rounded-full bg-slate-950 text-white font-black text-xs uppercase tracking-widest hover:bg-indigo-600 transition-all shadow-2xl shadow-indigo-100 active:scale-95">
-                  Initiate Strategic Briefing
-               </button>
-               <button className="px-10 py-5 rounded-full border border-slate-200 bg-white text-slate-500 font-bold text-xs uppercase tracking-widest hover:bg-slate-50 transition-all">
-                  View Framework
-               </button>
-            </div>
-         </div>
-      </section>
-
-      {/* Footer Superiority */}
-      <footer className="py-20 border-t border-slate-100 bg-white">
+      {/* Footer */}
+      <footer className="py-20 border-t border-slate-100 bg-white relative z-10">
          <div className="max-w-7xl mx-auto px-6 flex flex-col items-center">
             <div className="flex items-center mb-10 opacity-40">
                <span className="text-slate-400 font-mono text-xl">[</span>
@@ -121,7 +177,7 @@ export default function Home() {
                <span className="text-slate-400 font-mono text-xl">]</span>
             </div>
             <p className="text-[10px] font-bold text-slate-300 uppercase tracking-[0.5em] text-center">
-               Habitat Venture Group &bull; 2026 &bull; Brussels &bull; Amsterdam
+               Habitat Venture Group &bull; 2026 &bull; Global
             </p>
          </div>
       </footer>
