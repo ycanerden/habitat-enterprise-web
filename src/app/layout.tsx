@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Habitat Enterprise — The Venture OS for Corporate Innovation",
-  description: "Accelerate intrapreneurship and AI transformation with the Habitat 5-hour sprint methodology. Designed for forward-thinking organizations.",
+  title: "Habitat Enterprise — AI-Powered Innovation Sprints for Corporate Teams",
+  description: "Help your teams go from idea to working prototype in a single session. 100+ participants, 20+ MVPs launched. Book a pilot session.",
 };
 
 export default function RootLayout({
