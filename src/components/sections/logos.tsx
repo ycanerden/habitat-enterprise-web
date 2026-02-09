@@ -2,42 +2,48 @@
 
 import { Section } from "@/components/section";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const companies = [
-  "Google",
-  "Microsoft",
-  "Amazon",
-  "Netflix",
-  "YouTube",
-  "Instagram",
+const tools1 = [
+  "Lovable",
+  "Cursor",
+  "Claude Code",
+  "Framer",
+  "V0",
+  "Replit",
 ];
 
-const companies2 = ["Spotify", "Dropbox", "Tinder", "Slack", "Zoom", "Shopify"];
+const tools2 = [
+  "Bubble",
+  "Glide",
+  "FlutterFlow",
+  "Zapier",
+  "Antigravity",
+  "Bolt",
+];
 
 export function Logos() {
-  const [currentSet, setCurrentSet] = useState(companies);
+  const [currentSet, setCurrentSet] = useState(tools1);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSet((prev) => (prev === companies ? companies2 : companies));
-    }, 5000);
+      setCurrentSet((prev) => (prev === tools1 ? tools2 : tools1));
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <Section id="logos">
+    <Section id="logos" title="Our Toolkit" subtitle="We guide teams through the best AI & no-code tools for rapid prototyping.">
       <div className="border-x border-t">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6">
-          {companies.map((_, idx) => (
+          {tools1.map((_, idx) => (
             <div
               key={idx}
               className="flex group items-center justify-center p-4 border-r border-t last:border-r-0 sm:last:border-r md:[&:nth-child(3n)]:border-r md:[&:nth-child(6n)]:border-r-0 md:[&:nth-child(3)]:border-r [&:nth-child(-n+2)]:border-t-0 sm:[&:nth-child(-n+3)]:border-t-0 sm:[&:nth-child(3n)]:border-r-0 md:[&:nth-child(-n+6)]:border-t-0 [&:nth-child(2n)]:border-r-0 sm:[&:nth-child(2n)]:border-r"
             >
               <AnimatePresence mode="wait">
-                <motion.div
+                <motion.span
                   key={currentSet[idx]}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -47,15 +53,10 @@ export function Logos() {
                     ease: "easeInOut",
                     delay: Math.random() * 0.5,
                   }}
+                  className="text-sm font-semibold text-muted-foreground/50 hover:text-primary transition-colors duration-200 tracking-wide"
                 >
-                  <Image
-                    width={112}
-                    height={40}
-                    src={`https://cdn.magicui.design/companies/${currentSet[idx]}.svg`}
-                    className="h-10 w-28 dark:brightness-0 dark:invert grayscale hover:grayscale-0 hover:brightness-100 dark:hover:brightness-0 dark:hover:invert transition-all duration-200 ease-out opacity-30 hover:opacity-100"
-                    alt={currentSet[idx]}
-                  />
-                </motion.div>
+                  {currentSet[idx]}
+                </motion.span>
               </AnimatePresence>
             </div>
           ))}

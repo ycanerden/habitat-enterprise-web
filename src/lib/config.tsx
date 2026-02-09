@@ -1,113 +1,132 @@
 import { Icons } from "@/components/icons";
 import { FaTwitter, FaYoutube } from "react-icons/fa";
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa6";
-import { Cpu, Target, Shield, Zap, Layers, BarChart3 } from "lucide-react";
+import { Rocket, ListChecks, GraduationCap, CheckCircle, Presentation, Wrench } from "lucide-react";
 
 export const BLUR_FADE_DELAY = 0.04;
 
 export const siteConfig = {
   name: "Habitat Enterprise",
-  description: "The OS for Internal Ventures. Build ventures with startup velocity and banking-grade security.",
-  url: "https://joinhabitat.eu",
-  keywords: ["Venture Builder", "Corporate Innovation", "AI Ventures", "Habitat"],
+  description: "AI-powered innovation sprints for corporate teams.",
+  url: "https://enterprise.joinhabitat.eu",
+  keywords: ["Innovation Sprint", "Corporate Innovation", "AI Prototyping", "Habitat", "No-Code", "Rapid Prototyping"],
   links: {
-    twitter: "https://twitter.com/joinhabitat",
-    github: "https://github.com/ycanerden/habitat-enterprise-web",
-    linkedin: "https://linkedin.com/company/habitat",
-    instagram: "https://instagram.com/joinhabitat",
+    linkedin: "https://linkedin.com/company/joinhabitat",
+    github: "https://github.com/ycanerden",
   },
   header: [
     {
-        href: "/solutions",
-        label: "Solutions",
+      href: "#features",
+      label: "How It Works",
     },
     {
-        href: "/methodology",
-        label: "Methodology",
+      href: "#pricing",
+      label: "Offerings",
     },
     {
-        href: "/blog",
-        label: "Blog",
+      href: "https://joinhabitat.eu",
+      label: "Community",
     },
   ],
   hero: {
-    title: "The OS for Internal Ventures.",
-    description: "Habitat Enterprise empowers global organizations to build and scale AI-native ventures with the velocity of a founder and the security of a bank.",
-    cta: "Initiate Strategic Briefing",
-    ctaDescription: "No decks. Just functional MVPs in 5-hour sprints.",
+    title: "Your teams have ideas. We help them build.",
+    description: "Structured AI sprints that take corporate teams from concept to working prototype in a single session. No months of planning. Just real output.",
+    cta: "Book a Pilot Session",
+    ctaDescription: "100+ participants. 20+ MVPs launched. 4.4/5 satisfaction.",
   },
   features: [
     {
-      name: "Venture OS",
-      description: "Functional, AI-native prototypes validated in high-velocity 5-hour sprints.",
-      icon: <Cpu className="w-6 h-6" />,
+      name: "Rapid Prototyping",
+      description: "Build functional prototypes using AI and no-code tools in hours, not months.",
+      icon: <Rocket className="w-6 h-6" />,
     },
     {
-      name: "Strategic Discovery",
-      description: "Identifying high-TAM white spaces and opportunities within corporate ecosystems.",
-      icon: <Target className="w-6 h-6" />,
+      name: "Structured Methodology",
+      description: "A proven 4-phase sprint: Idea & Business Model, Build, Demo & Pitch, Extra Mile.",
+      icon: <ListChecks className="w-6 h-6" />,
     },
     {
-      name: "Banking-Grade Compliance",
-      description: "Governance frameworks designed for the world's most regulated environments.",
-      icon: <Shield className="w-6 h-6" />,
+      name: "Team Upskilling",
+      description: "Your people learn modern AI and no-code tools they can use in their daily work.",
+      icon: <GraduationCap className="w-6 h-6" />,
     },
     {
-      name: "Build Velocity",
-      description: "Moving from hypothesis to functional prototype 10x faster than traditional R&D.",
-      icon: <Zap className="w-6 h-6" />,
+      name: "Validated Concepts",
+      description: "Business model mapped, customer discovery initiated, clear next steps defined.",
+      icon: <CheckCircle className="w-6 h-6" />,
     },
     {
-      name: "Governance & Scale",
-      description: "Enterprise infrastructure designed for seamless integration and global deployment.",
-      icon: <Layers className="w-6 h-6" />,
+      name: "Management-Ready Output",
+      description: "Tangible demos and pitches ready for leadership review and internal approval.",
+      icon: <Presentation className="w-6 h-6" />,
     },
     {
-      name: "Venture Analytics",
-      description: "Real-time data visualization and validation for your internal venture portfolio.",
-      icon: <BarChart3 className="w-6 h-6" />,
+      name: "20+ AI Tools",
+      description: "Lovable, Cursor, Claude Code, Framer, V0, Antigravity — we teach your team the right ones.",
+      icon: <Wrench className="w-6 h-6" />,
     },
   ],
   pricing: [
     {
-      name: "Pilot Sprint",
-      price: "Enquire",
-      description: "A high-octane 5-hour sprint to validate your core hypothesis.",
-      features: ["Market Validation", "AI-Native Prototype", "Strategic Roadmap", "Security Audit"],
+      name: "Exploration Sprint",
+      price: "Half-day / Full-day",
+      description: "A fast-paced innovation day to validate ideas and build rough prototypes.",
+      features: [
+        "Innovation day format",
+        "Idea validation workshop",
+        "Rough working prototypes",
+        "Team alignment & energy",
+      ],
       cta: "Book a Sprint",
     },
     {
-      name: "Enterprise Studio",
-      price: "Custom",
-      description: "Full-cycle venture building from discovery to global scale.",
-      features: ["Dedicated Build Team", "Global Regulatory Compliance", "Infrastructure as a Service", "Ongoing Ops"],
-      cta: "Contact Sales",
+      name: "Prototyping Workshop",
+      price: "1–2 Days",
+      description: "Deep-dive into a specific challenge. Walk out with a demo-ready product.",
+      features: [
+        "Specific challenge focus",
+        "Demo-ready product",
+        "Management presentation",
+        "Customer discovery plan",
+      ],
+      cta: "Book a Workshop",
       featured: true,
+    },
+    {
+      name: "Innovation Partnership",
+      price: "Recurring Monthly",
+      description: "Embed innovation sprints into your organization as an ongoing capability.",
+      features: [
+        "Embedded team sprints",
+        "Innovation muscle building",
+        "Output tracking & reporting",
+        "Long-term culture change",
+      ],
+      cta: "Contact Us",
     },
   ],
   footer: [
     {
       title: "Solutions",
       links: [
-        { href: "#", label: "Venture Discovery" },
-        { href: "#", label: "AI Transformation" },
-        { href: "#", label: "Corporate Sprints" },
+        { href: "#pricing", label: "Corporate Sprints" },
+        { href: "#pricing", label: "Prototyping Workshops" },
+        { href: "#pricing", label: "Innovation Partnership" },
       ],
     },
     {
       title: "Company",
       links: [
-        { href: "/about", label: "About Us" },
-        { href: "/blog", label: "Blog" },
-        { href: "/contact", label: "Contact" },
+        { href: "https://joinhabitat.eu", label: "About Habitat" },
+        { href: "https://joinhabitat.eu", label: "Community" },
+        { href: "mailto:ycanerden@gmail.com", label: "Contact" },
       ],
     },
     {
       title: "Social",
       links: [
-        { href: "#", label: "Twitter" },
-        { href: "#", label: "LinkedIn" },
-        { href: "#", label: "GitHub" },
+        { href: "https://linkedin.com/company/joinhabitat", label: "LinkedIn" },
+        { href: "https://github.com/ycanerden", label: "GitHub" },
       ],
     },
   ],

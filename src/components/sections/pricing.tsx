@@ -13,8 +13,8 @@ export function Pricing() {
   const tiers = siteConfig.pricing;
 
   return (
-    <Section id="pricing" title="Pricing">
-      <div className="grid grid-cols-1 md:grid-cols-2 border-x border-t bg-background">
+    <Section id="pricing" title="Offerings">
+      <div className="grid grid-cols-1 md:grid-cols-3 border-x border-t bg-background">
         {tiers.map((tier, index) => (
           <div
             key={index}
@@ -30,12 +30,12 @@ export function Pricing() {
                 </span>
                 {tier.featured && (
                   <Badge variant="secondary" className="bg-primary text-primary-foreground">
-                    Featured
+                    Popular
                   </Badge>
                 )}
               </div>
               <div className="flex items-baseline gap-1">
-                <span className="text-4xl font-bold tracking-tight">{tier.price}</span>
+                <span className="text-2xl font-bold tracking-tight">{tier.price}</span>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {tier.description}
@@ -50,7 +50,7 @@ export function Pricing() {
               </ul>
               <div className="mt-auto pt-10">
                 <Link
-                  href="/contact"
+                  href="mailto:ycanerden@gmail.com?subject=Habitat%20Enterprise%20-%20Pilot%20Session"
                   className={cn(
                     buttonVariants({ variant: tier.featured ? "default" : "outline" }),
                     "w-full rounded-lg"

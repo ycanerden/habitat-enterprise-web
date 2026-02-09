@@ -47,13 +47,13 @@ export function Header() {
         <div className="flex items-center gap-4">
           <div className="hidden lg:flex items-center gap-4">
             <Link
-              href="/contact"
+              href="mailto:ycanerden@gmail.com?subject=Habitat%20Enterprise%20-%20Pilot%20Session"
               className={cn(
                 buttonVariants({ variant: "default" }),
                 "rounded-lg h-8 px-4 text-xs"
               )}
             >
-              Start Pilot
+              Book a Pilot Session
             </Link>
           </div>
           <div className="lg:hidden">

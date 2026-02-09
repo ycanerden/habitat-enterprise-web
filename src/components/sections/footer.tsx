@@ -33,13 +33,13 @@ export function Footer() {
                <span className="text-muted-foreground font-mono text-xl">]</span>
              </div>
              <p className="text-xs text-muted-foreground leading-relaxed">
-               The OS for Internal Ventures. Built for corporate intrapreneurs.
+               AI-powered innovation sprints for corporate teams. From concept to prototype in a single session.
              </p>
           </div>
         </div>
         <div className="mt-12 border-t pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground text-center md:text-left">
-            &copy; {new Date().getFullYear()} Habitat Venture Group &bull; Brussels &bull; Amsterdam &bull; Global
+            &copy; {new Date().getFullYear()} Habitat &bull; Brussels &bull; Leuven
           </p>
           <div className="flex gap-4">
              {Object.entries(siteConfig.links).map(([name, href]) => (
