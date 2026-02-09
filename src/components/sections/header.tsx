@@ -1,11 +1,10 @@
 "use client";
 
 import { MobileDrawer } from "@/components/mobile-drawer";
-import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/lib/config";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,52 +18,38 @@ export function Header() {
   }, []);
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-16",
-        isScrolled
-          ? "bg-background/80 backdrop-blur-md border-b shadow-sm"
-          : "bg-transparent"
-      )}
-    >
-      <div className="mx-auto max-w-6xl h-full flex items-center justify-between px-6">
-        <Link href="/" className="flex items-center group">
-          <span className="text-muted-foreground font-mono text-lg group-hover:text-primary transition-colors">[</span>
-          <span className="px-1.5 text-foreground font-bold tracking-tight text-sm">
-            HABITAT
-            <span className="text-primary tracking-widest text-[10px] uppercase ml-1 font-black">
-              Enterprise
+    <header className={cn(
+      "fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-md",
+      isScrolled && "shadow-sm"
+    )}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <Link href="/" className="flex items-center group">
+            <span className="text-muted-foreground/40 font-mono text-xl group-hover:text-primary transition-colors">[</span>
+            <span className="px-2 text-foreground font-bold tracking-tight">
+              HABITAT <span className="text-primary">ENTERPRISE</span>
             </span>
-          </span>
-          <span className="text-muted-foreground font-mono text-lg group-hover:text-primary transition-colors">]</span>
-        </Link>
+            <span className="text-muted-foreground/40 font-mono text-xl group-hover:text-primary transition-colors">]</span>
+          </Link>
 
-        <div className="hidden lg:flex items-center gap-8">
-          {siteConfig.header.map((item, i) => (
-            <Link
-              key={i}
-              href={item.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
+          <div className="hidden md:flex items-center space-x-8 text-sm font-medium text-muted-foreground">
+            {siteConfig.header.map((item, i) => (
+              <Link key={i} href={item.href} className="hover:text-primary transition-colors">
+                {item.label}
+              </Link>
+            ))}
+          </div>
 
-        <div className="flex items-center gap-4">
-          <div className="hidden lg:flex">
+          <div className="flex items-center">
             <Link
               href="mailto:ycanerden@gmail.com?subject=Habitat%20Enterprise%20-%20Pilot%20Session"
-              className={cn(
-                buttonVariants({ variant: "default", size: "sm" }),
-                "rounded-full px-5 text-xs font-semibold gradient-bg border-0 hover:opacity-90"
-              )}
+              className="hidden md:flex items-center space-x-2 px-4 py-2 rounded-xl border border-border hover:border-primary/30 transition-colors text-sm font-bold"
             >
-              Book a Pilot
+              <span>Book a Pilot</span>
             </Link>
-          </div>
-          <div className="lg:hidden">
-            <MobileDrawer />
+            <div className="md:hidden">
+              <MobileDrawer />
+            </div>
           </div>
         </div>
       </div>

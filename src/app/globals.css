@@ -4,11 +4,11 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 0 0% 99%;
     --foreground: 240 10% 10%;
-    --card: 0 0% 100%;
+    --card: 0 0% 99%;
     --card-foreground: 240 10% 10%;
-    --popover: 0 0% 100%;
+    --popover: 0 0% 99%;
     --popover-foreground: 240 10% 10%;
     --primary: 263 70% 50%;
     --primary-foreground: 0 0% 100%;
@@ -24,13 +24,6 @@
     --input: 220 13% 91%;
     --ring: 263 70% 50%;
     --radius: 0.75rem;
-
-    --color-1: 263 70% 50%;
-    --color-2: 290 60% 55%;
-    --color-3: 240 60% 60%;
-    --color-4: 220 70% 55%;
-    --color-5: 300 50% 50%;
-
     --header-height: 4rem;
   }
 
@@ -76,6 +69,8 @@
 
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
@@ -103,16 +98,4 @@
     background: hsl(var(--border));
     border-radius: 999px;
   }
-}
-
-/* Custom utilities */
-.gradient-text {
-  background: linear-gradient(135deg, hsl(263, 70%, 50%), hsl(290, 60%, 55%));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.gradient-bg {
-  background: linear-gradient(135deg, hsl(263, 70%, 50%), hsl(290, 60%, 55%));
 }

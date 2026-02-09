@@ -1,118 +1,61 @@
 "use client";
 
-import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/lib/config";
-import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
-
-const ease = [0.16, 1, 0.3, 1];
-
-function HeroPill() {
-  return (
-    <motion.a
-      href="#features"
-      className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm text-primary hover:bg-primary/10 transition-colors"
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease }}
-    >
-      <Sparkles className="h-3.5 w-3.5" />
-      <span className="font-medium">AI-Powered Innovation Sprints</span>
-      <ArrowRight className="h-3.5 w-3.5" />
-    </motion.a>
-  );
-}
-
-function HeroTitles() {
-  return (
-    <div className="flex w-full flex-col items-center pt-8">
-      <motion.h1
-        className="text-center text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
-        initial={{ filter: "blur(10px)", opacity: 0, y: 50 }}
-        animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease }}
-      >
-        <motion.span
-          className="block"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease }}
-        >
-          Your teams have ideas.
-        </motion.span>
-        <motion.span
-          className="block gradient-text"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5, ease }}
-        >
-          We help them build.
-        </motion.span>
-      </motion.h1>
-      <motion.p
-        className="mx-auto mt-6 max-w-2xl text-center text-lg text-muted-foreground leading-relaxed md:text-xl"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.7, duration: 0.8, ease }}
-      >
-        {siteConfig.hero.description}
-      </motion.p>
-    </div>
-  );
-}
-
-function HeroCTA() {
-  return (
-    <motion.div
-      className="mt-10 flex flex-col items-center gap-4"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.9, duration: 0.8, ease }}
-    >
-      <div className="flex flex-col sm:flex-row items-center gap-3">
-        <Link
-          href="mailto:ycanerden@gmail.com?subject=Habitat%20Enterprise%20-%20Pilot%20Session"
-          className={cn(
-            buttonVariants({ variant: "default", size: "lg" }),
-            "rounded-full px-8 text-sm font-semibold gradient-bg border-0 hover:opacity-90 transition-opacity"
-          )}
-        >
-          {siteConfig.hero.cta}
-          <ArrowRight className="ml-2 h-4 w-4" />
-        </Link>
-        <Link
-          href="#features"
-          className={cn(
-            buttonVariants({ variant: "outline", size: "lg" }),
-            "rounded-full px-8 text-sm font-semibold"
-          )}
-        >
-          See how it works
-        </Link>
-      </div>
-      <p className="text-sm text-muted-foreground">
-        {siteConfig.hero.ctaDescription}
-      </p>
-    </motion.div>
-  );
-}
+import { ArrowRight, Zap } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden">
-      {/* Subtle background decoration */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-primary/[0.03] rounded-full blur-3xl" />
-      </div>
+    <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+      <div className="max-w-7xl mx-auto text-center relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <span className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+            <Zap size={14} />
+            <span>AI-Powered Innovation Sprints</span>
+          </span>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground mb-6">
+            Your teams have ideas. <br />
+            <span className="text-primary italic">We help them build.</span>
+          </h1>
+          <p className="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground mb-12">
+            {siteConfig.hero.description}
+          </p>
+        </motion.div>
 
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="flex flex-col items-center">
-          <HeroPill />
-          <HeroTitles />
-          <HeroCTA />
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4"
+        >
+          <Link
+            href="mailto:ycanerden@gmail.com?subject=Habitat%20Enterprise%20-%20Pilot%20Session"
+            className="px-8 py-4 rounded-xl bg-primary text-white font-bold flex items-center space-x-2 hover:bg-primary/90 transition-all"
+          >
+            <span>{siteConfig.hero.cta}</span>
+            <ArrowRight size={18} />
+          </Link>
+          <Link
+            href="#features"
+            className="px-8 py-4 rounded-xl border border-border text-foreground font-bold hover:border-primary/30 transition-all"
+          >
+            See How It Works
+          </Link>
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-8 text-sm text-muted-foreground"
+        >
+          {siteConfig.hero.ctaDescription}
+        </motion.p>
       </div>
     </section>
   );
