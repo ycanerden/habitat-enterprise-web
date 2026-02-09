@@ -2,7 +2,6 @@
 
 import { Icons } from "@/components/icons";
 import { MobileDrawer } from "@/components/mobile-drawer";
-import { Navbar } from "@/components/navbar";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
@@ -24,13 +23,11 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
-        isScrolled
-          ? "border-b bg-background/80 backdrop-blur-md"
-          : "bg-transparent"
+        "sticky top-0 z-50 w-full transition-all duration-300 h-[var(--header-height)] bg-background/60 backdrop-blur",
+        isScrolled ? "border-b" : "bg-transparent"
       )}
     >
-      <div className="container flex h-[var(--header-height)] items-center justify-between">
+      <div className="container flex h-full items-center justify-between">
         <Link href="/" className="flex items-center group">
           <span className="text-muted-foreground font-mono text-xl group-hover:text-primary transition-colors">[</span>
           <span className="px-2 text-foreground font-bold tracking-tight">
@@ -39,8 +36,12 @@ export function Header() {
           <span className="text-muted-foreground font-mono text-xl group-hover:text-primary transition-colors">]</span>
         </Link>
 
-        <div className="hidden lg:block">
-          <Navbar />
+        <div className="hidden lg:flex items-center gap-6">
+           {siteConfig.header.map((item, i) => (
+              <Link key={i} href={item.href} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                {item.label}
+              </Link>
+           ))}
         </div>
 
         <div className="flex items-center gap-4">
@@ -49,7 +50,7 @@ export function Header() {
               href="/contact"
               className={cn(
                 buttonVariants({ variant: "default" }),
-                "rounded-full px-6"
+                "rounded-lg h-8 px-4 text-xs"
               )}
             >
               Start Pilot

@@ -1,6 +1,7 @@
 import { Icons } from "@/components/icons";
 import { FaTwitter, FaYoutube } from "react-icons/fa";
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa6";
+import { Cpu, Target, Shield, Zap, Layers, BarChart3 } from "lucide-react";
 
 export const BLUR_FADE_DELAY = 0.04;
 
@@ -17,53 +18,12 @@ export const siteConfig = {
   },
   header: [
     {
-      trigger: "Solutions",
-      content: {
-        main: {
-          title: "Venture OS",
-          description: "Our core framework for rapid venture building in complex enterprises.",
-          href: "/solutions/venture-os",
-        },
-        items: [
-          {
-            title: "Discovery",
-            href: "/solutions/discovery",
-            description: "Identify high-TAM white spaces in your market.",
-          },
-          {
-            title: "Security",
-            href: "/solutions/security",
-            description: "Banking-grade compliance for high-risk ventures.",
-          },
-          {
-            title: "Growth",
-            href: "/solutions/growth",
-            description: "Scale your internal venture to global markets.",
-          },
-        ],
-      },
+        href: "/solutions",
+        label: "Solutions",
     },
     {
-      trigger: "Company",
-      content: {
-        items: [
-          {
-            title: "About Us",
-            href: "/about",
-            description: "The team behind Habitat Venture Group.",
-          },
-          {
-            title: "Methodology",
-            href: "/methodology",
-            description: "The 5-hour sprint that changed everything.",
-          },
-          {
-            title: "Contact",
-            href: "/contact",
-            description: "Start your strategic briefing.",
-          },
-        ],
-      },
+        href: "/methodology",
+        label: "Methodology",
     },
     {
         href: "/blog",
@@ -76,6 +36,38 @@ export const siteConfig = {
     cta: "Initiate Strategic Briefing",
     ctaDescription: "No decks. Just functional MVPs in 5-hour sprints.",
   },
+  features: [
+    {
+      name: "Venture OS",
+      description: "Functional, AI-native prototypes validated in high-velocity 5-hour sprints.",
+      icon: <Cpu className="w-6 h-6" />,
+    },
+    {
+      name: "Strategic Discovery",
+      description: "Identifying high-TAM white spaces and opportunities within corporate ecosystems.",
+      icon: <Target className="w-6 h-6" />,
+    },
+    {
+      name: "Banking-Grade Compliance",
+      description: "Governance frameworks designed for the world's most regulated environments.",
+      icon: <Shield className="w-6 h-6" />,
+    },
+    {
+      name: "Build Velocity",
+      description: "Moving from hypothesis to functional prototype 10x faster than traditional R&D.",
+      icon: <Zap className="w-6 h-6" />,
+    },
+    {
+      name: "Governance & Scale",
+      description: "Enterprise infrastructure designed for seamless integration and global deployment.",
+      icon: <Layers className="w-6 h-6" />,
+    },
+    {
+      name: "Venture Analytics",
+      description: "Real-time data visualization and validation for your internal venture portfolio.",
+      icon: <BarChart3 className="w-6 h-6" />,
+    },
+  ],
   pricing: [
     {
       name: "Pilot Sprint",

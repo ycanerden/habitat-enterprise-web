@@ -40,7 +40,7 @@ export function MobileDrawer() {
               "text-white rounded-full group"
             )}
           >
-            {siteConfig.cta}
+            {siteConfig.hero.cta}
           </Link>
         </DrawerFooter>
       </DrawerContent>
