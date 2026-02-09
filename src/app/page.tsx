@@ -1,138 +1,201 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { Shield, Zap, Target, Users, BarChart3, ArrowRight } from 'lucide-react';
+import { Shield, Zap, Target, ArrowRight, CheckCircle2, Globe, BarChart4 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 
 export default function Home() {
-  const solutions = [
+  const pillars = [
     {
-      icon: <Target className="w-6 h-6" />,
-      title: "Venture Studio Model",
-      description: "We help corporate teams validate and build internal startups with the speed of a VC-backed founder."
+      label: "Strategy",
+      title: "Venture Intelligence",
+      description: "Moving beyond predictive models to agentic decision-making frameworks.",
+      icon: <Target className="w-5 h-5" />
     },
     {
-      icon: <Zap className="w-6 h-6" />,
-      title: "AI-Native Transformation",
-      description: "Move beyond ChatGPT. Implement agentic workflows that automate complex strategic and technical operations."
+      label: "Execution",
+      title: "Rapid Venture Studio",
+      description: "Validating internal concepts with the speed of a high-growth startup.",
+      icon: <Zap className="w-5 h-5" />
     },
     {
-      icon: <Shield className="w-6 h-6" />,
-      title: "Enterprise Innovation OS",
-      description: "A structured methodology for rapid prototyping while maintaining corporate compliance and strategic alignment."
+      label: "Security",
+      title: "Compliance-First AI",
+      description: "Enterprise-grade safeguards for proprietary data and strategic IP.",
+      icon: <Shield className="w-5 h-5" />
     }
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white font-sans">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="relative pt-40 pb-32 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-dot-pattern opacity-40 [mask-image:radial-gradient(white,transparent)]" />
+        
+        <div className="max-w-6xl mx-auto relative z-10 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-habitat-indigo/10 border border-habitat-indigo/20 text-habitat-indigo text-xs font-bold uppercase tracking-widest mb-6">
-              Corporate Innovation 2.0
-            </span>
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-habitat-slate mb-6">
-              The Venture OS for <br />
-              <span className="gradient-text italic">Forward-Thinking Enterprises</span>
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 text-slate-500 text-[10px] font-bold uppercase tracking-[0.2em] mb-8">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-habitat-indigo opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-habitat-indigo"></span>
+              </span>
+              <span>Available for Selective Pilots</span>
+            </div>
+            
+            <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-slate-950 mb-8 leading-[0.9]">
+              The Operating System for <br />
+              <span className="text-habitat-indigo italic font-serif-display">Internal Ventures</span>
             </h1>
-            <p className="max-w-2xl mx-auto text-lg md:text-xl text-habitat-muted mb-10 leading-relaxed">
-              Accelerate intrapreneurship with the Habitat 5-hour sprint methodology. 
-              Build, validate, and launch internal ventures at scale.
+            
+            <p className="max-w-2xl mx-auto text-xl text-slate-500 mb-12 font-medium leading-relaxed">
+              We empower global organizations to build, validate, and scale 
+              AI-native ventures with the velocity of a founder.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-              <button className="px-8 py-4 rounded-xl bg-habitat-indigo text-white font-bold hover:shadow-lg hover:shadow-habitat-indigo/20 transition-all flex items-center space-x-2">
-                <span>Explore Pilot Program</span>
-                <ArrowRight size={18} />
+
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+              <button className="h-14 px-10 rounded-full bg-slate-950 text-white font-bold hover:bg-habitat-indigo transition-all duration-300 flex items-center space-x-2 group">
+                <span>Initiate Transformation</span>
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="px-8 py-4 rounded-xl border border-habitat-border text-habitat-slate font-bold hover:bg-slate-50 transition-all">
-                Download Proposal Framework
+              <button className="h-14 px-10 rounded-full border border-slate-200 text-slate-950 font-bold hover:bg-slate-50 transition-all">
+                The Methodology
               </button>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Solutions Grid */}
-      <section id="solutions" className="py-24 bg-slate-50">
+      {/* Strategic Pillars */}
+      <section id="solutions" className="py-32 border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-habitat-slate mb-4">Enterprise-Grade Innovation</h2>
-            <p className="text-habitat-muted">Combining startup velocity with strategic corporate rigor.</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {solutions.map((item, idx) => (
+          <div className="grid md:grid-cols-3 gap-16">
+            {pillars.map((item, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="p-8 rounded-2xl bg-white border border-habitat-border hover:border-habitat-indigo/50 transition-colors group"
+                transition={{ delay: idx * 0.1, duration: 0.5 }}
+                className="relative group"
               >
-                <div className="w-12 h-12 rounded-lg bg-habitat-indigo/10 text-habitat-indigo flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  {item.icon}
-                </div>
-                <h3 className="text-xl font-bold text-habitat-slate mb-3">{item.title}</h3>
-                <p className="text-habitat-muted leading-relaxed text-sm">{item.description}</p>
+                <div className="mb-6 text-habitat-indigo">{item.icon}</div>
+                <div className="text-[10px] uppercase tracking-widest text-habitat-indigo font-bold mb-3">{item.label}</div>
+                <h3 className="text-2xl font-bold text-slate-950 mb-4">{item.title}</h3>
+                <p className="text-slate-500 leading-relaxed font-medium">{item.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Methodology Section */}
-      <section id="methodology" className="py-24">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
+      {/* The Venture Studio Advantage */}
+      <section className="py-32 bg-slate-950 text-white overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-habitat-indigo/10 blur-[120px] rounded-full translate-x-1/2" />
+        
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-24">
             <div className="lg:w-1/2">
-              <h2 className="text-4xl font-bold text-habitat-slate mb-6">The 5-Hour Corporate Sprint</h2>
-              <p className="text-habitat-muted mb-8 leading-relaxed">
-                Our proprietary sprint methodology is optimized for corporate environments, 
-                enabling teams to move from strategic alignment to a functional, 
-                live prototype in a single working session.
+              <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
+                From Strategy Deck to <br />
+                <span className="text-habitat-indigo">Functional Reality</span>
+              </h2>
+              <p className="text-slate-400 text-lg mb-12 leading-relaxed font-medium">
+                Traditional consulting stops at the presentation. We start with the sprint. 
+                Our 5-hour framework transforms internal constraints into technical momentum.
               </p>
-              <ul className="space-y-4">
+              
+              <div className="grid grid-cols-2 gap-8">
                 {[
-                  "Accelerated Market Validation",
-                  "AI-Native Tech Stack Implementation",
-                  "Strategic ROI Frameworks",
-                  "Internal Stakeholder Alignment"
-                ].map((text, i) => (
-                  <li key={i} className="flex items-center space-x-3 text-habitat-slate font-medium">
-                    <div className="w-5 h-5 rounded-full bg-habitat-indigo/20 flex items-center justify-center">
-                      <div className="w-2 h-2 rounded-full bg-habitat-indigo" />
-                    </div>
-                    <span>{text}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="lg:w-1/2 w-full aspect-video rounded-3xl bg-slate-900 overflow-hidden relative group">
-               <div className="absolute inset-0 bg-gradient-to-br from-habitat-indigo/20 to-transparent pointer-events-none" />
-               <div className="flex items-center justify-center h-full">
-                  <BarChart3 className="w-24 h-24 text-white/10 group-hover:text-habitat-indigo/30 transition-colors" />
-               </div>
-               <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-white/5 backdrop-blur-md border border-white/10">
-                  <div className="flex items-center justify-between text-white text-xs font-mono">
-                    <span>STATUS: VALIDATING VENTURE #04</span>
-                    <span className="text-habitat-indigo">84% CONFIDENCE</span>
+                  { title: "Velocity", val: "10x Build Speed" },
+                  { title: "Efficiency", val: "90% Leaner R\u0026D" },
+                  { title: "Scale", val: "Global Ready" },
+                  { title: "IP", val: "100% Owned" }
+                ].map((stat, i) => (
+                  <div key={i} className="border-l border-white/10 pl-6 py-2">
+                    <div className="text-slate-500 text-xs uppercase tracking-widest font-bold mb-1">{stat.title}</div>
+                    <div className="text-xl font-bold">{stat.val}</div>
                   </div>
-               </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="lg:w-1/2 w-full relative">
+              <div className="aspect-square rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-3xl p-8 flex flex-col justify-between">
+                <div className="flex justify-between items-start">
+                   <BarChart4 className="w-12 h-12 text-habitat-indigo" />
+                   <div className="text-right">
+                     <div className="text-xs text-slate-500 font-mono">PILOT STAGE</div>
+                     <div className="text-sm font-bold">ALPHA-01</div>
+                   </div>
+                </div>
+                
+                <div className="space-y-6">
+                   <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        whileInView={{ width: "70%" }}
+                        transition={{ duration: 1.5, delay: 0.5 }}
+                        className="h-full bg-habitat-indigo" 
+                      />
+                   </div>
+                   <div className="flex justify-between text-xs font-mono text-slate-400">
+                     <span>VALIDATION CYCLE</span>
+                     <span>70% COMPLETE</span>
+                   </div>
+                </div>
+
+                <div className="p-4 rounded-xl bg-white/5 border border-white/5">
+                   <div className="flex items-center space-x-3 text-sm">
+                      <CheckCircle2 size={16} className="text-habitat-indigo" />
+                      <span className="text-slate-300">Semantic Engine Integrated</span>
+                   </div>
+                </div>
+              </div>
+              
+              {/* Decorative Elements */}
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-habitat-indigo rounded-full mix-blend-screen filter blur-3xl opacity-20" />
             </div>
           </div>
         </div>
       </section>
 
+      {/* Global Scale */}
+      <section id="methodology" className="py-32 bg-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+           <Globe className="w-12 h-12 text-slate-200 mx-auto mb-8" />
+           <h2 className="text-3xl font-bold text-slate-950 mb-6">Designed for the Global Stage</h2>
+           <p className="text-slate-500 text-lg leading-relaxed font-medium mb-12">
+             Our methodology is being deployed across logistics, finance, and manufacturing sectors 
+             to bridge the gap between AI hype and operational ROI.
+           </p>
+           <button className="px-10 py-4 rounded-full border border-slate-200 font-bold hover:bg-slate-50 transition-all">
+              Request Case Studies
+           </button>
+        </div>
+      </section>
+
       {/* Footer */}
-      <footer className="py-12 border-t border-habitat-border text-center text-habitat-muted text-sm">
-        <p>&copy; 2026 Habitat Enterprise. Professional Intrapreneurship Solutions.</p>
+      <footer className="py-16 border-t border-slate-100 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="flex items-center group">
+              <span className="text-slate-300 font-mono text-lg">[</span>
+              <span className="px-2 text-slate-950 font-bold tracking-tight text-sm uppercase">
+                HABITAT <span className="text-habitat-indigo">Enterprise</span>
+              </span>
+              <span className="text-slate-300 font-mono text-lg">]</span>
+            </div>
+            <div className="text-slate-400 text-xs font-medium tracking-widest uppercase">
+              &copy; 2026 Habitat Venture Group. All Rights Reserved.
+            </div>
+          </div>
+        </div>
       </footer>
     </main>
   );
