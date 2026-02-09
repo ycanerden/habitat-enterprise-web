@@ -4,36 +4,34 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #020617;
+  --foreground: #000000;
   --habitat-indigo: #4F46E5;
-  --accent-soft: #F8FAFC;
+  --habitat-gray: #F1F5F9;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  selection-background-color: var(--habitat-indigo);
-  selection-color: white;
+  -webkit-font-smoothing: antialiased;
 }
 
-.font-serif-display {
-  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+.font-display {
+  font-family: var(--font-geist-sans), sans-serif;
+  letter-spacing: -0.04em;
+  line-height: 0.85;
+}
+
+.brutalist-border {
+  border: 1px solid #000;
+}
+
+.brutalist-shadow {
+  box-shadow: 4px 4px 0px #000;
 }
 
 .gradient-text {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  background-image: linear-gradient(135deg, #1e1b4b 0%, #4f46e5 100%);
-}
-
-.glass-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-}
-
-.bg-dot-pattern {
-  background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
-  background-size: 24px 24px;
+  background-image: linear-gradient(135deg, #000 0%, #4F46E5 100%);
 }
