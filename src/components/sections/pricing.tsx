@@ -1,7 +1,6 @@
 "use client";
 
 import { Section } from "@/components/section";
-import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
@@ -13,54 +12,71 @@ export function Pricing() {
   const tiers = siteConfig.pricing;
 
   return (
-    <Section id="pricing" title="Offerings">
-      <div className="grid grid-cols-1 md:grid-cols-3 border-x border-t bg-background">
+    <Section
+      id="pricing"
+      title="Offerings"
+      subtitle="Choose the format that fits your team"
+      description="From a fast exploration sprint to an ongoing innovation partnership — we meet you where you are."
+    >
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {tiers.map((tier, index) => (
-          <div
+          <motion.div
             key={index}
             className={cn(
-              "relative p-8 flex flex-col border-b last:border-b-0 md:border-r md:last:border-r-0",
-              tier.featured ? "bg-primary/5" : "bg-background"
+              "relative rounded-2xl border p-8 flex flex-col transition-all duration-300",
+              tier.featured
+                ? "border-primary/30 bg-primary/[0.02] shadow-lg shadow-primary/5 scale-[1.02]"
+                : "bg-card hover:border-primary/20 hover:shadow-md"
             )}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <div className="flex flex-col gap-4">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-bold uppercase tracking-widest text-muted-foreground">
-                  {tier.name}
+            {tier.featured && (
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span className="gradient-bg text-white text-xs font-bold uppercase tracking-wider px-4 py-1 rounded-full">
+                  Popular
                 </span>
-                {tier.featured && (
-                  <Badge variant="secondary" className="bg-primary text-primary-foreground">
-                    Popular
-                  </Badge>
-                )}
               </div>
-              <div className="flex items-baseline gap-1">
-                <span className="text-2xl font-bold tracking-tight">{tier.price}</span>
+            )}
+
+            <div className="flex flex-col gap-4">
+              <div>
+                <h3 className="text-lg font-bold text-foreground">
+                  {tier.name}
+                </h3>
+                <p className="text-sm text-primary font-semibold mt-1">
+                  {tier.price}
+                </p>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {tier.description}
               </p>
-              <ul className="mt-8 space-y-3">
+
+              <ul className="mt-4 space-y-3 flex-1">
                 {tier.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Check className="h-4 w-4 text-primary shrink-0" />
+                  <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
+                    <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                     <span>{feature}</span>
                   </li>
                 ))}
               </ul>
-              <div className="mt-auto pt-10">
+
+              <div className="mt-6">
                 <Link
                   href="mailto:ycanerden@gmail.com?subject=Habitat%20Enterprise%20-%20Pilot%20Session"
                   className={cn(
                     buttonVariants({ variant: tier.featured ? "default" : "outline" }),
-                    "w-full rounded-lg"
+                    "w-full rounded-full font-semibold",
+                    tier.featured && "gradient-bg border-0 hover:opacity-90"
                   )}
                 >
                   {tier.cta}
                 </Link>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </Section>

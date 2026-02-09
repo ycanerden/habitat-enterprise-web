@@ -1,14 +1,11 @@
 "use client";
 
-import { AuroraText } from "@/components/aurora-text";
-import { Icons } from "@/components/icons";
-import { Section } from "@/components/section";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { lazy, Suspense, useEffect, useState } from "react";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 const ease = [0.16, 1, 0.3, 1];
 
@@ -16,71 +13,49 @@ function HeroPill() {
   return (
     <motion.a
       href="#features"
-      className="flex w-auto items-center space-x-2 rounded-full bg-primary/20 px-2 py-1 ring-1 ring-accent whitespace-pre"
+      className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm text-primary hover:bg-primary/10 transition-colors"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease }}
     >
-      <div className="w-fit rounded-full bg-accent px-2 py-0.5 text-left text-xs font-medium text-primary sm:text-sm">
-        🚀 New
-      </div>
-      <p className="text-xs font-medium text-primary sm:text-sm">
-        AI-Powered Innovation Sprints
-      </p>
-      <svg
-        width="12"
-        height="12"
-        className="ml-1"
-        viewBox="0 0 12 12"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8.78141 5.33312L5.20541 1.75712L6.14808 0.814453L11.3334 5.99979L6.14808 11.1851L5.20541 10.2425L8.78141 6.66645H0.666748V5.33312H8.78141Z"
-          fill="hsl(var(--primary))"
-        />
-      </svg>
+      <Sparkles className="h-3.5 w-3.5" />
+      <span className="font-medium">AI-Powered Innovation Sprints</span>
+      <ArrowRight className="h-3.5 w-3.5" />
     </motion.a>
   );
 }
 
 function HeroTitles() {
   return (
-    <div className="flex w-full max-w-3xl flex-col overflow-hidden pt-8">
+    <div className="flex w-full flex-col items-center pt-8">
       <motion.h1
-        className="text-left text-4xl font-semibold leading-tighter text-foreground sm:text-5xl md:text-6xl tracking-tighter"
+        className="text-center text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
         initial={{ filter: "blur(10px)", opacity: 0, y: 50 }}
         animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
-        transition={{
-          duration: 1,
-          ease,
-          staggerChildren: 0.2,
-        }}
+        transition={{ duration: 1, ease }}
       >
         <motion.span
-          className="inline-block text-balance"
+          className="block"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            delay: 0.5,
-            ease,
-          }}
+          transition={{ duration: 0.8, delay: 0.3, ease }}
         >
-          <AuroraText className="leading-normal">
-            {siteConfig.hero.title}
-          </AuroraText>
+          Your teams have ideas.
+        </motion.span>
+        <motion.span
+          className="block gradient-text"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5, ease }}
+        >
+          We help them build.
         </motion.span>
       </motion.h1>
       <motion.p
-        className="text-left max-w-xl leading-normal text-muted-foreground sm:text-lg sm:leading-normal text-balance"
+        className="mx-auto mt-6 max-w-2xl text-center text-lg text-muted-foreground leading-relaxed md:text-xl"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.6,
-          duration: 0.8,
-          ease,
-        }}
+        transition={{ delay: 0.7, duration: 0.8, ease }}
       >
         {siteConfig.hero.description}
       </motion.p>
@@ -90,89 +65,55 @@ function HeroTitles() {
 
 function HeroCTA() {
   return (
-    <div className="relative mt-6">
-      <motion.div
-        className="flex w-full max-w-2xl flex-col items-start justify-start space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8, duration: 0.8, ease }}
-      >
+    <motion.div
+      className="mt-10 flex flex-col items-center gap-4"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.9, duration: 0.8, ease }}
+    >
+      <div className="flex flex-col sm:flex-row items-center gap-3">
         <Link
           href="mailto:ycanerden@gmail.com?subject=Habitat%20Enterprise%20-%20Pilot%20Session"
           className={cn(
-            buttonVariants({ variant: "default" }),
-            "w-full sm:w-auto text-background flex gap-2 rounded-lg"
+            buttonVariants({ variant: "default", size: "lg" }),
+            "rounded-full px-8 text-sm font-semibold gradient-bg border-0 hover:opacity-90 transition-opacity"
           )}
         >
           {siteConfig.hero.cta}
+          <ArrowRight className="ml-2 h-4 w-4" />
         </Link>
-      </motion.div>
-      <motion.p
-        className="mt-3 text-sm text-muted-foreground text-left"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.0, duration: 0.8 }}
-      >
+        <Link
+          href="#features"
+          className={cn(
+            buttonVariants({ variant: "outline", size: "lg" }),
+            "rounded-full px-8 text-sm font-semibold"
+          )}
+        >
+          See how it works
+        </Link>
+      </div>
+      <p className="text-sm text-muted-foreground">
         {siteConfig.hero.ctaDescription}
-      </motion.p>
-    </div>
+      </p>
+    </motion.div>
   );
 }
-const LazySpline = lazy(() => import("@splinetool/react-spline"));
 
 export function Hero() {
-  const [showSpline, setShowSpline] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024); // Assuming 1024px is the breakpoint for lg
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  useEffect(() => {
-    // Don't show on mobile
-    if (!isMobile) {
-      const timer = setTimeout(() => {
-        setShowSpline(true);
-      }, 1000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [isMobile]);
-
   return (
-    <Section id="hero">
-      <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-x-8 w-full p-6 lg:p-12 border-x overflow-hidden">
-        <div className="flex flex-col justify-start items-start lg:col-span-1">
+    <section className="relative pt-32 pb-20 overflow-hidden">
+      {/* Subtle background decoration */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-primary/[0.03] rounded-full blur-3xl" />
+      </div>
+
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="flex flex-col items-center">
           <HeroPill />
           <HeroTitles />
           <HeroCTA />
         </div>
-        {!isMobile && (
-          <div className="relative lg:h-full lg:col-span-1">
-            <Suspense>
-              {showSpline && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 1 }}
-                >
-                  <LazySpline
-                    scene="https://prod.spline.design/mZBrYNcnoESGlTUG/scene.splinecode"
-                    className="absolute inset-0 w-full h-full origin-top-left flex items-center justify-center"
-                  />
-                </motion.div>
-              )}
-            </Suspense>
-          </div>
-        )}
       </div>
-    </Section>
+    </section>
   );
 }
