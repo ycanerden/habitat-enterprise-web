@@ -2,32 +2,30 @@ import Link from 'next/link';
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-black bg-white/90 backdrop-blur-md">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-        <div className="flex justify-between items-center h-24">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-slate-100 bg-white/80 backdrop-blur-md">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center group">
-            <span className="text-black font-mono text-2xl group-hover:text-habitat-indigo transition-colors">[</span>
-            <span className="px-2 text-black font-black tracking-tighter text-2xl uppercase">
-              HABITAT <span className="text-habitat-indigo">Enterprise</span>
+            <span className="text-slate-300 font-mono text-xl group-hover:text-habitat-indigo transition-colors">[</span>
+            <span className="px-2 text-slate-900 font-bold tracking-tight">
+              HABITAT <span className="text-habitat-indigo tracking-widest text-xs uppercase ml-1">Enterprise</span>
             </span>
-            <span className="text-black font-mono text-2xl group-hover:text-habitat-indigo transition-colors">]</span>
+            <span className="text-slate-300 font-mono text-xl group-hover:text-habitat-indigo transition-colors">]</span>
           </Link>
           
-          <div className="hidden lg:flex items-center space-x-12 text-[10px] font-bold uppercase tracking-[0.2em] text-black">
-            <Link href="#solutions" className="hover:text-habitat-indigo transition-colors">Venture Services</Link>
-            <Link href="#methodology" className="hover:text-habitat-indigo transition-colors">The Framework</Link>
+          <div className="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-500">
+            <Link href="#solutions" className="hover:text-habitat-indigo transition-colors">Solutions</Link>
+            <Link href="#methodology" className="hover:text-habitat-indigo transition-colors">Methodology</Link>
             <Link href="https://joinhabitat.eu" target="_blank" className="hover:text-habitat-indigo transition-colors">Community</Link>
-            <Link 
-              href="#pilot" 
-              className="px-8 py-3 rounded-full bg-black text-white text-[10px] font-bold uppercase tracking-widest hover:bg-habitat-indigo transition-all duration-300"
-            >
-              Initiate Pilot
-            </Link>
           </div>
 
-          <div className="lg:hidden">
-             <div className="w-8 h-[2px] bg-black mb-1.5" />
-             <div className="w-8 h-[2px] bg-black" />
+          <div className="flex items-center">
+            <Link 
+              href="#pilot" 
+              className="px-5 py-2 rounded-full bg-slate-900 text-white text-sm font-bold hover:bg-habitat-indigo transition-all duration-300 shadow-lg shadow-indigo-100"
+            >
+              Start Pilot
+            </Link>
           </div>
         </div>
       </div>

@@ -1,141 +1,134 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Globe, Zap, Shield, Target, Plus } from 'lucide-react';
+import { ArrowRight, Target, Zap, Shield, Cpu, BarChart4 } from 'lucide-react';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
+import Dashboard from '@/components/Dashboard';
 
 export default function Home() {
-  const categories = [
-    { num: "01", title: "Venture Discovery", desc: "We identify white spaces in your market and validate them with real customer data in weeks, not months." },
-    { num: "02", title: "AI Transformation", desc: "We build agentic systems that don't just 'assist' your teams, but handle complete strategic workflows." },
-    { num: "03", title: "Corporate Sprints", desc: "Our 5-hour high-octane methodology is the gold standard for rapid prototyping in complex organizations." }
+  const pillars = [
+    {
+      icon: <Target className="w-6 h-6" />,
+      title: "Venture Intelligence",
+      description: "We identify white spaces in your market and validate them with real-time customer data and AI-driven TAM analysis."
+    },
+    {
+      icon: <Zap className="w-6 h-6" />,
+      title: "Rapid Venture Studio",
+      description: "Moving from strategic alignment to a functional, AI-native prototype in a single 5-hour sprint."
+    },
+    {
+      icon: <Shield className="w-6 h-6" />,
+      title: "Governance & Scale",
+      description: "Enterprise-grade infrastructure designed for deployment within complex regulatory and security environments."
+    }
   ];
 
   return (
-    <main className="min-h-screen bg-white text-black selection:bg-black selection:text-white">
+    <main className="min-h-screen bg-white selection:bg-habitat-indigo selection:text-white bg-mesh">
       <Navbar />
-
-      {/* Hero Section - High Impact */}
-      <section className="pt-48 pb-24 px-6 md:px-12 border-b border-black">
-        <div className="max-w-[1400px] mx-auto">
+      
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-24 px-4 overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-40 pointer-events-none bg-dot-pattern"></div>
+        
+        <div className="max-w-7xl mx-auto text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.5 }}
           >
-            <div className="flex items-center space-x-4 mb-12">
-               <span className="w-12 h-[1px] bg-black" />
-               <span className="text-xs font-bold uppercase tracking-[0.3em]">The OS for Intrapreneurs</span>
-            </div>
-            
-            <h1 className="text-[12vw] md:text-[9vw] font-black leading-[0.85] tracking-tighter mb-16">
-              WE BUILD <br />
-              <span className="text-habitat-indigo">VENTURES</span> FOR <br />
-              ENTERPRISES.
+            <span className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-habitat-indigo/5 border border-habitat-indigo/10 text-habitat-indigo text-[10px] font-bold uppercase tracking-widest mb-8">
+              <BarChart4 size={12} />
+              <span>The OS for Corporate Intrapreneurs</span>
+            </span>
+            <h1 className="text-5xl md:text-8xl font-black tracking-tight text-slate-900 mb-8 leading-[0.9]">
+              The Operating System for <br />
+              <span className="gradient-text italic">Internal Ventures</span>
             </h1>
+            <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-500 mb-12 leading-relaxed">
+              We empower global organizations to build, validate, and scale 
+              AI-native ventures with the velocity of a founder.
+            </p>
 
-            <div className="grid md:grid-cols-2 gap-12 items-end">
-              <p className="text-xl md:text-2xl font-medium leading-tight max-w-xl">
-                Habitat Enterprise is a venture-building powerhouse. 
-                We bridge the gap between corporate strategy and functional, AI-native reality.
-              </p>
-              <div className="flex justify-start md:justify-end">
-                <button className="group relative flex items-center justify-center w-48 h-48 rounded-full border-2 border-black hover:bg-black hover:text-white transition-all duration-500 overflow-hidden">
-                   <div className="relative z-10 flex flex-col items-center">
-                     <span className="font-bold text-sm uppercase mb-1">Start Pilot</span>
-                     <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                   </div>
-                </button>
-              </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-20">
+              <button className="px-8 py-4 rounded-full bg-habitat-indigo text-white font-bold flex items-center space-x-2 hover:shadow-xl hover:shadow-indigo-200 transition-all active:scale-95">
+                <span>Start Pilot Briefing</span>
+                <ArrowRight size={18} />
+              </button>
+              <button className="px-8 py-4 rounded-full border border-slate-200 text-slate-600 font-bold hover:bg-slate-50 transition-all">
+                The Methodology
+              </button>
             </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <Dashboard />
           </motion.div>
         </div>
       </section>
 
-      {/* Services Grid - Bundl/Board style */}
-      <section id="solutions" className="border-b border-black">
-        <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-black">
-          {categories.map((item, idx) => (
-            <motion.div 
-              key={idx}
-              whileHover={{ backgroundColor: "#F8FAFC" }}
-              className="p-12 md:p-20 flex flex-col justify-between aspect-square md:aspect-auto min-h-[500px]"
-            >
-              <div>
-                <span className="text-sm font-mono font-bold mb-12 block">{item.num}</span>
-                <h3 className="text-4xl font-bold mb-6 leading-none uppercase tracking-tighter">{item.title}</h3>
-                <p className="text-lg text-black/60 font-medium leading-relaxed">{item.desc}</p>
-              </div>
-              <div className="mt-12">
-                <Plus className="w-8 h-8 text-black" />
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* Strategic Vision - Large Full Width */}
-      <section className="py-32 px-6 md:px-12 bg-black text-white">
-         <div className="max-w-[1400px] mx-auto">
-            <div className="grid lg:grid-cols-2 gap-24 items-center">
-               <h2 className="text-5xl md:text-7xl font-bold leading-[0.9] tracking-tighter uppercase">
-                 Consulting <br />is Dead. <br />
-                 <span className="text-habitat-indigo italic">Building</span> is <br />Everything.
-               </h2>
-               <div className="space-y-12">
-                  <p className="text-2xl text-white/70 leading-relaxed font-medium">
-                    The era of 100-page slide decks is over. We deliver functional MVPs and 
-                    validated market engines using the Habitat 5-hour methodology.
-                  </p>
-                  <div className="grid grid-cols-2 gap-8">
-                     {[
-                       { l: "Velocity", v: "10x Build" },
-                       { l: "Security", v: "Bank Grade" },
-                       { l: "Efficiency", v: "Lean Ops" },
-                       { l: "Ownership", v: "100% Yours" }
-                     ].map((s, i) => (
-                       <div key={i} className="border-t border-white/20 pt-6">
-                          <span className="text-[10px] uppercase font-bold tracking-widest text-white/40 mb-2 block">{s.l}</span>
-                          <span className="text-xl font-bold uppercase">{s.v}</span>
-                       </div>
-                     ))}
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-
-      {/* Global Impact - High End Footer */}
-      <section id="methodology" className="py-40 px-6 md:px-12 text-center border-b border-black">
-         <div className="max-w-4xl mx-auto">
-            <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-12 leading-[0.85]">
-              Ready for the <br />Next Era?
-            </h2>
-            <p className="text-xl md:text-2xl font-medium mb-16 text-black/60">
-              Join leading organizations deploying AI-native ventures 
-              with the velocity of a high-growth startup.
-            </p>
-            <button className="h-20 px-16 rounded-full bg-black text-white text-lg font-bold hover:bg-habitat-indigo transition-colors duration-300">
-              Request Enterprise Briefing
-            </button>
-         </div>
-      </section>
-
-      {/* Footer - Minimalist Brutalist */}
-      <footer className="py-12 px-6 md:px-12">
-        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-end md:items-center gap-8">
-          <div className="flex items-center">
-            <span className="text-black/20 font-mono text-2xl">[</span>
-            <span className="px-3 text-black font-black tracking-tighter text-2xl uppercase">
-              HABITAT <span className="text-habitat-indigo">Enterprise</span>
-            </span>
-            <span className="text-black/20 font-mono text-2xl">]</span>
-          </div>
-          <div className="text-right">
-            <div className="text-[10px] font-bold uppercase tracking-widest mb-2">Habitat Venture Group &copy; 2026</div>
-            <div className="text-xs font-medium text-black/40 uppercase tracking-widest">Brussles &bull; Amsterdam &bull; Global</div>
+      {/* Pillars Section */}
+      <section id="solutions" className="py-32 border-y border-slate-100 bg-slate-50/50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-12">
+            {pillars.map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="group p-8 rounded-2xl bg-white border border-slate-200 hover:border-habitat-indigo/30 transition-all hover:shadow-xl hover:shadow-indigo-50"
+              >
+                <div className="w-12 h-12 rounded-xl bg-habitat-indigo/5 text-habitat-indigo flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  {item.icon}
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-4 tracking-tight uppercase tracking-widest text-sm">{item.title}</h3>
+                <p className="text-slate-500 leading-relaxed text-sm font-medium italic">
+                  "{item.description}"
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
+      </section>
+
+      {/* Strategy Section */}
+      <section id="methodology" className="py-32 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-8 tracking-tighter uppercase italic">
+            Speed is the new <br />
+            <span className="text-habitat-indigo tracking-widest">Compliance.</span>
+          </h2>
+          <p className="text-xl text-slate-500 mb-12 font-medium">
+            We deliver functional, AI-native prototypes and validated market strategies 
+            using the Habitat 5-hour framework—bypassing traditional R&D friction.
+          </p>
+          <div className="flex justify-center items-center space-x-12 grayscale opacity-50">
+             <div className="flex items-center space-x-2 font-black text-2xl tracking-tighter">[ HABITAT ]</div>
+             <div className="flex items-center space-x-2 font-black text-2xl tracking-tighter uppercase text-habitat-indigo">OS</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-16 border-t border-slate-100 text-center">
+        <div className="flex justify-center mb-8">
+           <div className="flex items-center">
+              <span className="text-slate-300 font-mono text-xl">[</span>
+              <span className="px-2 text-slate-900 font-bold tracking-tight text-sm uppercase">
+                HABITAT <span className="text-habitat-indigo">Enterprise</span>
+              </span>
+              <span className="text-slate-300 font-mono text-xl">]</span>
+           </div>
+        </div>
+        <p className="text-slate-300 text-[10px] font-bold uppercase tracking-[0.3em]">&copy; 2026 Habitat Venture Group. Built for Intrapreneurs.</p>
       </footer>
     </main>
   );
